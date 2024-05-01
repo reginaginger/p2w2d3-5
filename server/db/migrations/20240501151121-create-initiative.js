@@ -2,27 +2,32 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Meetups', {
+    await queryInterface.createTable('Initiatives', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      description: {
-        type: Sequelize.TEXT
-      },
-      address: {
+      title: {
         type: Sequelize.STRING
       },
-      maxAmount: {
-        type: Sequelize.INTEGER
+      description: {
+        type: Sequelize.STRING
       },
-      counter: {
-        type: Sequelize.INTEGER
+      status: {
+        type: Sequelize.BOOLEAN
+      },
+      level: {
+        type: Sequelize.STRING
+      },
+      image: {
+        type: Sequelize.STRING
+      },
+      data: {
+        type: Sequelize.STRING
       },
       userId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
@@ -41,6 +46,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Meetups');
+    await queryInterface.dropTable('Initiatives');
   }
 };
