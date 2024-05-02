@@ -14,6 +14,7 @@ export default function Navigation({ user, logoutHandler }) {
           <Nav.Link as={Link} to="/">Home</Nav.Link>
           {user ? (
             <>
+              <Nav.Link as={Link} to="/new">Добавить инициативу</Nav.Link>
               <Nav.Link as={Link} to="/account">Account</Nav.Link>
               <Button onClick={logoutHandler}>Logout</Button>
             </>
