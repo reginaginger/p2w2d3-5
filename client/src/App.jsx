@@ -9,6 +9,7 @@ import SignupPage from './components/pages/SignupPage';
 import ProtectedRoute from './components/hoc/ProtectedRoute';
 import axiosInstance, { setAccessToken } from './components/axiosInstance';
 import NonActivePage from './components/pages/NonActivePage';
+import MyAcount from './components/pages/MyAcount';
 
 
 function App() {
@@ -68,6 +69,10 @@ function App() {
             {
               path: '/nonactive',
               element: <NonActivePage user={user} />,
+            },
+            {
+              path: '/acount',
+              element: <MyAcount user={user} />,
             },
           ],
         },
