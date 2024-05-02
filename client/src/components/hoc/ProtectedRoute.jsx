@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import React from 'react';
+import React from 'react'
 
 export default function ProtectedRoute({ children, isAllowed, redirectPath = '/' }) {
   if (!isAllowed) {
