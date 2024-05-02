@@ -8,7 +8,12 @@ import SignupPage from './components/pages/SignupPage';
 // import OneMessagePage from './components/pages/OneMessagePage';
 import ProtectedRoute from './components/hoc/ProtectedRoute';
 import axiosInstance, { setAccessToken } from './components/axiosInstance';
+<<<<<<< HEAD
+import NonActivePage from './components/pages/NonActivePage';
+
+=======
 import NewInitiativePage from './components/pages/NewInitiativePage';
+>>>>>>> dev
 
 function App() {
   const [user, setUser] = useState();
@@ -65,8 +70,13 @@ function App() {
               element: <SignupPage signupHandler={signupHandler} />,
             },
             {
+<<<<<<< HEAD
+              path: '/nonactive',
+              element: <NonActivePage user={user} />,
+=======
               path: '/new',
               element: <NewInitiativePage />,
+>>>>>>> dev
             },
           ],
         },
