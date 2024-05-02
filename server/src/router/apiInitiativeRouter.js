@@ -28,4 +28,6 @@ initiativeRouter.route('/new').post(verifyAccessToken, async (req, res) => {
   res.sendStatus(201);
 });
 
+// initiativeRouter.route('/account').get()
+
 module.exports = initiativeRouter;

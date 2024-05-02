@@ -7,7 +7,7 @@ export default function LoginPage({ loginHandler }) {
     
     <Form onSubmit={loginHandler}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
+        <Form.Label>Email adress</Form.Label>
         <Form.Control name='email' type="email" placeholder="Enter email" />
         <Form.Text className="text-muted">
           Well never share your email with anyone else.

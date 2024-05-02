@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const { User } = require('../../db/models');
 const generateTokens = require('../utils/generateTokens');
 const cookiesConfig = require('../configs/cookiesConfig');
+const verifyAccessToken = require('../middlewares/verifyAccessToken');
 
 const authRouter = express.Router();
 
@@ -49,6 +50,31 @@ authRouter.post('/signup', async (req, res) => {
 
 authRouter.get('/logout', (req, res) => {
   res.clearCookie('refreshToken').sendStatus(200);
+});
+
+authRouter.get('/users/:id', verifyAccessToken, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await User.findByPk(id, {
+      attributes: { exclude: ['password'] }
+    });
+    if (!user) return res.status(404).json({ message: 'Нет такого пользователя' });
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ message: 'Упс!' });
+  }
+});
+
+authRouter.put('/users/:id', verifyAccessToken, async (req, res) => {
+  const { id } = req.params;
+  const { adress } = req.body;
+  try {
+    const user = await User.findByPk(id);
+    await user.update({ adress });
+    res.json({ message: 'Данные изменены' });
+  } catch (error) {
+    res.status(500).json({ message: 'Нет такого пользователя' });
+  }
 });
 
 module.exports = authRouter;
