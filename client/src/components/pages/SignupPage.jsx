@@ -1,8 +1,7 @@
 import React from 'react';
 import axiosInstance from '../axiosInstance';
 
-export default function SignupPage({signupHandler}) {
-
+export default function SignupPage({ signupHandler }) {
   const submitHandler = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
