@@ -24,10 +24,13 @@ initiativeRouter.route('/nonactive').get(async (req, res) => {
 });
 
 initiativeRouter.route('/new').post(verifyAccessToken, async (req, res) => {
-  const newInitiative = await Initiative.create({ ...req.body, status: true, userId: res.locals.user.id });
+  await Initiative.create({ ...req.body, status: true, userId: res.locals.user.id });
   res.sendStatus(201);
 });
 
-// initiativeRouter.route('/account').get()
+initiativeRouter.route('/:id').get(async (req, res) => {
+  const initiative = await Initiative.findByPk(req.params.id);
+  res.json(initiative);
+});
 
 module.exports = initiativeRouter;
