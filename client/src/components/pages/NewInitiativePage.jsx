@@ -5,7 +5,7 @@ export default function NewInitiativePage() {
   const submitHandler = async (e) => {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.target));
-    const res = await axiosInstance.post('/new', formData);
+    await axiosInstance.post('/initiatives/new', formData);
   };
   return (
     <form onSubmit={submitHandler}>

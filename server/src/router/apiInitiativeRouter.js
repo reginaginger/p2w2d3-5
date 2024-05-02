@@ -23,4 +23,9 @@ initiativeRouter.route('/nonactive').get(async (req, res) => {
   res.json(initiatives);
 });
 
+initiativeRouter.route('/new').post(async (req, res) => {
+  const newInitiative = await Initiative.create(req.body);
+  
+})
+
 module.exports = initiativeRouter;
