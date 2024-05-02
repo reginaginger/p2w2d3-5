@@ -1,6 +1,6 @@
 const express = require('express');
 const { Initiative, User } = require('../../db/models');
-// const verifyAccessToken = require('../middlewares/verifyAccessToken');
+const verifyAccessToken = require('../middlewares/verifyAccessToken');
 // const checkCreator = require('../middlewares/checkCreator');
 
 const initiativeRouter = express.Router();
@@ -21,6 +21,11 @@ initiativeRouter.route('/nonactive').get(async (req, res) => {
     where: { status: false },
   });
   res.json(initiatives);
+});
+
+initiativeRouter.route('/new').post(verifyAccessToken, async (req, res) => {
+  const newInitiative = await Initiative.create({ ...req.body, status: true, userId: res.locals.user.id });
+  res.sendStatus(201);
 });
 
 module.exports = initiativeRouter;

@@ -2,14 +2,14 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function InitiativeCard({initiative}) {
+function InitiativeCard({ initiative }) {
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+    <Card style={{ width: '18rem', margin: '10px' }}>
+      <Card.Img variant="top" src={initiative.image} />
       <Card.Body>
         <Card.Title>{initiative.title}</Card.Title>
         <Card.Text>
-         {initiative.description}
+          {initiative.description}
         </Card.Text>
         <Button variant="primary">Подробнее</Button>
       </Card.Body>
@@ -19,7 +19,6 @@ function InitiativeCard({initiative}) {
 
 export default InitiativeCard;
 
-
 // import Button from 'react-bootstrap/Button';
 // import Card from 'react-bootstrap/Card';
 // import { Link } from 'react-router-dom';
@@ -27,7 +26,7 @@ export default InitiativeCard;
 // export default function MeetupItem({ meetup, deleteHandler, user }){
 //     return (
 //         <Card style={{ width: '18rem' }}>
-            
+
 //             <Card.Body>
 //                 <Card.Title>{meetup.title}</Card.Title>
 //                 <Card.Text>
