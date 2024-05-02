@@ -2,30 +2,25 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Meetups', {
+    await queryInterface.createTable('UnLikes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      description: {
-        type: Sequelize.TEXT
-      },
-      address: {
-        type: Sequelize.STRING
-      },
-      maxAmount: {
-        type: Sequelize.INTEGER
-      },
-      counter: {
-        type: Sequelize.INTEGER
-      },
       userId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
+      },
+      initiativeId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Initiatives',
           key: 'id',
         },
         onDelete: 'CASCADE',
@@ -41,6 +36,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Meetups');
+    await queryInterface.dropTable('UnLikes');
   }
 };
