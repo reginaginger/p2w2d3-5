@@ -64,11 +64,11 @@ function App() {
               path: '/signup',
               element: <SignupPage signupHandler={signupHandler} />,
             },
-            {
-              path: '/new',
-              element: <NewInitiativePage />,
-            },
           ],
+        },
+        {
+          path: '/new',
+          element: <NewInitiativePage />,
         },
         // {
         //   path: '/account',

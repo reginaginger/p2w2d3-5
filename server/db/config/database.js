@@ -8,10 +8,10 @@ module.exports = {
     host: process.env.DB_HOST,
     dialect: 'postgres',
     // logging: false,
-    seederStorage: "sequelize",
-    seederStorageTableName: "SequelizeData",
+    seederStorage: 'sequelize',
+    seederStorageTableName: 'SequelizeData',
     logging: false,
- 
+
   },
   test: {
     username: 'root',

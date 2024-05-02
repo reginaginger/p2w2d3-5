@@ -6,7 +6,6 @@ export default function NewInitiativePage() {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.target));
     const res = await axiosInstance.post('/new', formData);
-    setInitiative((prev) => [res.data, ...prev]);
   };
   return (
     <form onSubmit={submitHandler}>
