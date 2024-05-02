@@ -35,7 +35,7 @@ authRouter.post('/signup', async (req, res) => {
     where: { email },
     defaults: { name, password: hashpass },
   });
-  if (!created) return res.sendStatus(403);
+  if (!created) return res.sendStatus(400);
 
   const user = newUser.get();
   delete user.password;

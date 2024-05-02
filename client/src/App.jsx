@@ -8,7 +8,9 @@ import SignupPage from './components/pages/SignupPage';
 // import OneMessagePage from './components/pages/OneMessagePage';
 import ProtectedRoute from './components/hoc/ProtectedRoute';
 import axiosInstance, { setAccessToken } from './components/axiosInstance';
+import NonActivePage from './components/pages/NonActivePage';
 
+import NewInitiativePage from './components/pages/NewInitiativePage';
 
 function App() {
   const [user, setUser] = useState();
@@ -64,7 +66,15 @@ function App() {
               path: '/signup',
               element: <SignupPage signupHandler={signupHandler} />,
             },
+            {
+              path: '/nonactive',
+              element: <NonActivePage user={user} />,
+            },
           ],
+        },
+        {
+          path: '/new',
+          element: <NewInitiativePage />,
         },
         // {
         //   path: '/account',
@@ -77,12 +87,10 @@ function App() {
       ],
     },
   ];
-const router = createBrowserRouter(routes);
+  const router = createBrowserRouter(routes);
   return (
-    <>
-     <RouterProvider router={router}/>
-    </>
-  )
+    <RouterProvider router={router} />
+  );
 }
 
-export default App
+export default App;
