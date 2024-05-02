@@ -6,18 +6,15 @@ import InitiativeCard from '../ui/InitiativeCard';
 export default function HomePage() {
   const [initiatives, setInitiatives] = useState([]);
   useEffect(() => {
-    axiosInstance('/initiatives/active').then((res) => {
-      setInitiatives(res.data);
+    axiosInstance('/initiatives/active').then((data) => {
+      setInitiatives(data.data);
     });
   }, []);
   return (
-    
-    <Row>
-      {initiatives.map((initiative) => (
-        <Col xs={12} key={initiative.id}>
-          <InitiativeCard initiative={initiative} />
-        </Col>
-      ))}
+    <Row style={{ display: 'flex', justifyContent: 'space-around' }}>
+      {/* <Col xs={12}> */}
+      {initiatives.map((initiative) => (<InitiativeCard key={initiative.id} initiative={initiative} />))}
+      {/* </Col> */}
     </Row>
   );
 }
