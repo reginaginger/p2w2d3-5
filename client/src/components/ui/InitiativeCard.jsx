@@ -11,7 +11,7 @@ function InitiativeCard({ initiative }) {
         <Card.Text>
           {initiative.description}
         </Card.Text>
-        <Button variant="primary">Подробнее</Button>
+        <Button variant="primary" href={`/${initiative.id}`} >Подробнее</Button>
       </Card.Body>
     </Card>
   );

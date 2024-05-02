@@ -9,8 +9,8 @@ import SignupPage from './components/pages/SignupPage';
 import ProtectedRoute from './components/hoc/ProtectedRoute';
 import axiosInstance, { setAccessToken } from './components/axiosInstance';
 import NonActivePage from './components/pages/NonActivePage';
-
 import NewInitiativePage from './components/pages/NewInitiativePage';
+import OneInitiativePage from './components/pages/OneInitiativePage';
 
 function App() {
   const [user, setUser] = useState();
@@ -70,7 +70,13 @@ function App() {
               path: '/nonactive',
               element: <NonActivePage user={user} />,
             },
+
           ],
+        },
+        {
+          path: '/:id',
+          element: <OneInitiativePage />,
+
         },
         {
           path: '/new',
