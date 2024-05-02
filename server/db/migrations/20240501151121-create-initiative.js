@@ -21,6 +21,9 @@ module.exports = {
       level: {
         type: Sequelize.STRING
       },
+      category: {
+        type: Sequelize.STRING
+      },
       image: {
         type: Sequelize.STRING
       },
