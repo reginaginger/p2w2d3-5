@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo (User, { foreignKey: 'userId' })
     }
   }
-  Initiotive.init({
+  Initiative.init({
     title: DataTypes.STRING,
     description: DataTypes.STRING,
     status: DataTypes.BOOLEAN,
