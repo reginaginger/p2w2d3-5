@@ -5,7 +5,7 @@ import Navigation from './ui/Navigation';
 
 export default function Layout({ user, logoutHandler }) {
   return (
-    <Container>
+    <div>
       <Row>
         <Col xs={12}>
           <Navigation user={user} logoutHandler={logoutHandler} />
@@ -18,6 +18,6 @@ export default function Layout({ user, logoutHandler }) {
           </main>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 }
