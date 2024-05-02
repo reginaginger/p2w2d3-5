@@ -6,6 +6,7 @@ export default function NewInitiativePage() {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.target));
     await axiosInstance.post('/initiatives/new', formData);
+    window.location.href = '/';
   };
   return (
     <form onSubmit={submitHandler}>
@@ -26,9 +27,9 @@ export default function NewInitiativePage() {
           <label id="level">
             Выберете уровень:
             <select name="level">
-              <option value="">Федеральный</option>
-              <option value="">Региональный</option>
-              <option value="">Муниципальный</option>
+              <option value="Федеральный">Федеральный</option>
+              <option value="Региональный">Региональный</option>
+              <option value="Муниципальный">Муниципальный</option>
             </select>
           </label>
         </div>
@@ -36,18 +37,18 @@ export default function NewInitiativePage() {
           <label id="category">
             Выберете категорию:
             <select name="category">
-              <option value="">Образование</option>
-              <option value="">Здравоохранение</option>
-              <option value="">Муниципальный</option>
-              <option value="">Региональный</option>
-              <option value="">Муниципальный</option>
+              <option value="Образование">Образование</option>
+              <option value="Здравоохранение">Здравоохранение</option>
+              <option value="Транспорт">Транспорт</option>
+              <option value="Политика">Политика</option>
+              <option value="Социальные вопросы">Социальные вопросы</option>
             </select>
           </label>
         </div>
         <div>
           <label htmlFor="exampleInput" className="form-label">
             Фотография
-            <input name="title" type="text" className="form-control" id="exampleInput" />
+            <input name="image" type="text" className="form-control" id="exampleInput" />
           </label>
         </div>
         <div>
