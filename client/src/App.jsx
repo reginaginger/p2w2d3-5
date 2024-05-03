@@ -46,6 +46,7 @@ function App() {
     await axiosInstance('/auth/logout');
     setUser(null);
     setAccessToken('');
+    window.location = '/';
   };
 
   const routes = [
