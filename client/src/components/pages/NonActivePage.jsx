@@ -18,7 +18,11 @@ export default function NonActivePage() {
       </div>
       <Row style={{ display: 'flex', justifyContent: 'space-around' }}>
         {initiatives.map(
-          (initiative) => (<Col><InitiativeCard key={initiative.id} initiative={initiative} /></Col>),
+          (initiative) => (
+            <Col>
+              <InitiativeCard key={initiative.id} initiative={initiative} />
+            </Col>
+          ),
         )}
       </Row>
     </>

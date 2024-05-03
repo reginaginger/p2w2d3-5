@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Conteiner from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container';
 
 export default function LoginPage({ loginHandler }) {
   return (
-    <Conteiner style={{ marginTop: '50px' }}>
+    <Container style={{ marginTop: '50px' }}>
       <Form onSubmit={loginHandler}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -20,6 +20,6 @@ export default function LoginPage({ loginHandler }) {
           Войти
         </Button>
       </Form>
-    </Conteiner>
+    </Container>
   );
 }
