@@ -17,7 +17,7 @@ export default function LoginPage({ loginHandler }) {
           <Form.Control name="password" type="password" placeholder="Password" />
         </Form.Group>
         <Button variant="primary" type="submit">
-          Submit
+          Войти
         </Button>
       </Form>
     </Conteiner>
