@@ -1,23 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import axiosInstance from '../axiosInstance';
 
 function InitiativeCard({ initiative }) {
+  const [like, setLike] = useState(0);
+
+  useEffect(() => {
+    axiosInstance.get(`/initiatives//likes/${initiative.id}`).then((data) => {
+      setLike(data.data.length);
+    });
+  }, []);
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <Card style={{ width: '18rem', margin: '10px' }}>
         <Card.Img variant="top" src={initiative.image} />
         <Card.Body>
           <Card.Title><strong>{initiative.title}</strong></Card.Title>
+          <Card.Text style={{ fontSize: '16px', marginBottom: '20px' }}>
+            Уровень:
+            {initiative.level}
+          </Card.Text>
+          <Card.Text style={{ fontSize: '16px', marginBottom: '20px' }}>
+            Категория:
+            {initiative.category}
+          </Card.Text>
+          <Card.Text style={{ fontSize: '16px', marginBottom: '20px' }}>
+            Количество ❤️:
+            {' '}
+            <strong>{like}</strong>
+          </Card.Text>
           <Card.Title style={{ color: 'gray', fontSize: '16px', marginBottom: '20px' }}>
             Дата окончания:
             {' '}
             {initiative.data}
           </Card.Title>
-          <Card.Text style={{ fontSize: '16px', marginBottom: '20px' }}>
-            Уровень:
-            {initiative.level}
-          </Card.Text>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Button variant="primary" href={`/${initiative.id}`}>Подробнее</Button>
           </div>
