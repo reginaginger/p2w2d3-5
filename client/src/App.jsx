@@ -67,16 +67,12 @@ function App() {
               path: '/signup',
               element: <SignupPage signupHandler={signupHandler} />,
             },
-            {
-              path: '/nonactive',
-              element: <NonActivePage user={user} />,
-            },
 
           ],
         },
         {
           path: '/:id',
-          element: <OneInitiativePage />,
+          element: <OneInitiativePage user={user} />,
 
         },
         {
@@ -84,17 +80,13 @@ function App() {
           element: <NewInitiativePage />,
         },
         {
+          path: '/nonactive',
+          element: <NonActivePage user={user} />,
+        },
+        {
           path: '/account',
           element: <AccPage user={user} />,
-        }
-        // {
-        //   path: '/account',
-        //   element: (<ProtectedRoute isAllowed={!!user} redirectPath="/login"><AccountPage user={user} /></ProtectedRoute>),
-        // },
-        // {
-        //   path: '/meetups/:id',
-        //   element: <OneMessagePage />,
-        // },
+        },
       ],
     },
   ];
