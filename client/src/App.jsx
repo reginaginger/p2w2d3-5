@@ -11,6 +11,7 @@ import axiosInstance, { setAccessToken } from './components/axiosInstance';
 import NonActivePage from './components/pages/NonActivePage';
 import NewInitiativePage from './components/pages/NewInitiativePage';
 import OneInitiativePage from './components/pages/OneInitiativePage';
+import AccPage from './components/pages/AccPage';
 
 function App() {
   const [user, setUser] = useState();
@@ -45,6 +46,7 @@ function App() {
     await axiosInstance('/auth/logout');
     setUser(null);
     setAccessToken('');
+    window.location = '/';
   };
 
   const routes = [
@@ -82,14 +84,10 @@ function App() {
           path: '/nonactive',
           element: <NonActivePage user={user} />,
         },
-        // {
-        //   path: '/account',
-        //   element: (<ProtectedRoute isAllowed={!!user} redirectPath="/login"><AccountPage user={user} /></ProtectedRoute>),
-        // },
-        // {
-        //   path: '/meetups/:id',
-        //   element: <OneMessagePage />,
-        // },
+        {
+          path: '/account',
+          element: <AccPage user={user} />,
+        },
       ],
     },
   ];
