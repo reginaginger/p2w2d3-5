@@ -4,16 +4,26 @@ import Card from 'react-bootstrap/Card';
 
 function InitiativeCard({ initiative }) {
   return (
-    <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={initiative.image} />
-      <Card.Body>
-        <Card.Title>{initiative.title}</Card.Title>
-        <Card.Text>
-          {initiative.description}
-        </Card.Text>
-        <Button variant="primary" href={`/${initiative.id}`} >Подробнее</Button>
-      </Card.Body>
-    </Card>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <Card style={{ width: '18rem', margin: '10px' }}>
+        <Card.Img variant="top" src={initiative.image} />
+        <Card.Body>
+          <Card.Title><strong>{initiative.title}</strong></Card.Title>
+          <Card.Title style={{ color: 'gray', fontSize: '16px', marginBottom: '20px' }}>
+            Дата окончания:
+            {' '}
+            {initiative.data}
+          </Card.Title>
+          <Card.Text style={{ fontSize: '16px', marginBottom: '20px' }}>
+            Уровень:
+            {initiative.level}
+          </Card.Text>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Button variant="primary" href={`/${initiative.id}`}>Подробнее</Button>
+          </div>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 

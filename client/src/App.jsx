@@ -66,21 +66,21 @@ function App() {
               path: '/signup',
               element: <SignupPage signupHandler={signupHandler} />,
             },
-            {
-              path: '/nonactive',
-              element: <NonActivePage user={user} />,
-            },
 
           ],
         },
         {
           path: '/:id',
-          element: <OneInitiativePage />,
+          element: <OneInitiativePage user={user} />,
 
         },
         {
           path: '/new',
           element: <NewInitiativePage />,
+        },
+        {
+          path: '/nonactive',
+          element: <NonActivePage user={user} />,
         },
         // {
         //   path: '/account',
